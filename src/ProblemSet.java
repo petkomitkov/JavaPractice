@@ -3,11 +3,7 @@ import java.util.Arrays;
 public class ProblemSet {
 	
 	public static void main(String[] args) {
-		
-		int[] arr = {1,2,3,4,5};
-		System.out.println(kthMin(arr,3));
-	
-		
+				
 	}
 	
 	//1
@@ -17,9 +13,7 @@ public class ProblemSet {
 	
 	//2
 	public static boolean isPrime(int number) {
-		
-		//Izpolzvame teoremata na Wilson, koqto glasi che p e prosto togava i samo togava kogato p deli (p-1)! + 1.Tova e baven algoritam.Po burzo e ot 1 do sqrt(number) da vidim dali se delqt na p.
-			
+				
 		int fact = factorial(number - 1); //Pravim otdelna funkciq za smqtane na faktoriel.
 		return (fact + 1) % number == 0;
 		
@@ -41,9 +35,7 @@ public class ProblemSet {
 	
 	//4
 	public static int kthMin(int[] sequence, int k) {
-	
-		// Shte sortirame masiva zashtoto inache ne znam kak tr da stane.
-		// Nqma da pravim proverka za pravilen vhod  (sequence.length >= k) tui kato povtoreniqta q pravqt bezsmislena.
+		
 		java.util.Arrays.sort(sequence);
 		int currentMinCount = 1;
 		
@@ -88,6 +80,27 @@ public class ProblemSet {
 		return accumulator;
 	}
 	
+	//8
+	public static int getSmallestMultiple(int upperBound) {
+		
+		int multiple = 1;
+		for(int i = 1;i <= upperBound;i++) {
+			multiple = lcm(multiple,i);
+		}	
+		return multiple;
+	}
+	
+	 public static int gcd(int x, int y) { //Algoritam na Evklid za nai-golqm obsh delitel
+	     if(y == 0) {
+	         return x;
+	     }
+	     return gcd(y, x%y);
+	 }
+	
+	 public static int lcm(int x, int y) { //Izpolzva gcd za izchislqvane na nai malko obshto chastno
+		 
+		 return (x * y)/gcd(x,y);
+	 }
 	public static int factorial(int number) {
 		int accumulator = 1;
 		
